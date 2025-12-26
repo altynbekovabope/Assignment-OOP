@@ -1,30 +1,54 @@
+import Interfaces.ILearnable;
+import Interfaces.IWorkable;
+import model.Human;
+import model.Employee;
+import model.Student;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
-        Human human =  new Human(25, "Alibek", true);
-        Employee employee = new Employee(30, "Kaisar", true, "Developer", 3500);
-        Student student = new Student(20, "ALina", false, "Media Technologies", 3.8f);
+        Employee emp1 = new Employee(30, "Kaisar", true, "Developer", 3500);
+        Student stu1 = new Student(20, "ALina", false, "Media Technologies", 3.8f,101);
 
-        System.out.println("Enter name: ");
-        human.setName(scanner.nextLine());
+        emp1.introduce();
+        emp1.work();
+        emp1.getSalary();
+        emp1.study();
+        emp1.showGPA();
 
-        System.out.println("Enter age: ");
-        human.setAge(scanner.nextInt());
+        stu1.introduce();
+        stu1.work();
+        stu1.study();
+        stu1.showStudentId();
+        stu1.showGPA();
 
-        System.out.println("Are they male? true/false: ");
-        human.setIsMale(scanner.nextBoolean());
+        Human h1 = new Employee(35, "Askar", true, "Manager", 5000);
+        Human h2 = new Student(19, "Aruzhan", false, "IT", 3.9f, 102);
 
-        System.out.println("Human info:");
-        System.out.println("Name: " + human.getName());
-        System.out.println("Age: " + human.getAge());
-        System.out.println("Is male: " + human.getIsMale());
+        h1.introduce();
+        h1.work();
+        h2.introduce();
+        h2.work();
 
-        human.introduce();
-        human.work();
-        employee.work();
-        student.work();
+        IWorkable w1 = new Employee(28, "Kasym", true, "Tester", 2500);
+        ILearnable l1 = new Student(20, "Dana", false, "Media", 3.7f, 103);
+
+        w1.work();
+        l1.study();
+        l1.showGPA();
+
+        System.out.println("Enter student name: ");
+        String name = scanner.nextLine();
+        System.out.println("Enter student age: ");
+        int age = scanner.nextInt();
+
+        Student stuInput = new Student(age,name,true,"IT", 4.0f, 104);
+        stuInput.introduce();
+        stuInput.showStudentId();
+        stuInput.showGPA();
     }
 }

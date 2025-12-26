@@ -1,8 +1,9 @@
-public class Human {
+package model;
+public abstract class Human {
 
-    private int age;
-    private String name;
-    private boolean isMale;
+    protected int age;
+    protected String name;
+    protected boolean isMale;
 
     public Human(int age, String name, boolean isMale) {
         this.age = age;
@@ -10,12 +11,10 @@ public class Human {
         this.isMale = isMale;
     }
 
-    public void introduce(){
-        System.out.println("Hi, my name is " + name + " and I am " + age + " years old.");
-    }
-    public void work(){
-        System.out.println(name + " is doing some work.");
-    }
+    public abstract void introduce();
+    public abstract void work();
+
+
     public int getAge(){
         return age;
     }
@@ -36,5 +35,4 @@ public class Human {
     public void setIsMale(boolean isMale){
         this.isMale = isMale;
     }
-
 }
